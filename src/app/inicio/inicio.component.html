@@ -47,13 +47,15 @@
         </div>
         <div class="tab-pane fade" id="nav-minhas" role="tabpanel" aria-labelledby="nav-minhas-tab">
           <div class="card-columns">
-            <div class="card text-center" *ngFor="let i of user.postagem">
+            <div class="card text-center" *ngFor="let item of user.postagens">
             <div class="card-body">
-              <h5 class="card-title">{{i.titulo}}</h5>
-              <small class="text-muted">Tema: {{i.tema.descricao}}</small>
-              <p class="card-text">{{i.texto}}.</p>
-              <p class="card-text"><small class="text-muted">{{i.data | date: 'dd/MM/yyyy'}} às {{i.data | date: "HH:mm"}}</small></p>
+              <h5 class="card-title">{{item.titulo}}</h5>
+              <small class="text-muted">Tema: {{item.tema.descricao}}</small>
+              <p class="card-text">{{item.texto}}.</p>
+              <p class="card-text"><small class="text-muted">{{item.data | date: 'dd/MM/yyyy'}} às {{item.data | date: "HH:mm"}}</small></p>
               
+              <a [routerLink]="['/postagem-edit', item.id]" class="text-info mr-3">Editar</a>
+              <a [routerLink]="['/postagem-delete', item.id]" class="text-danger">Apagar</a>
             </div>
             
             
